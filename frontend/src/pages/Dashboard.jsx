@@ -4,8 +4,9 @@ import { FileText, Target, TrendingUp, Zap, Award, ArrowUpRight } from 'lucide-r
 import { resumeApi, matchApi } from '../services/api';
 
 function Dashboard() {
-    const [stats, setStats] = useState({ resumes: 0, matches: 0, avgScore: 0 });
+    const [stats, setStats] = useState({ resumes: 0, matches: 0, avgScore: 0, topMatch: 0 });
     const [resumes, setResumes] = useState([]);
+    const [skillData, setSkillData] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -15,22 +16,64 @@ function Dashboard() {
     const fetchData = async () => {
         try {
             const resumeRes = await resumeApi.list();
-            setResumes(resumeRes.data);
-            setStats({ resumes: resumeRes.data.length, matches: 0, avgScore: 0 });
+            const resumeList = resumeRes.data;
+            setResumes(resumeList);
+
+            let totalMatches = 0;
+            let totalScore = 0;
+            let maxScore = 0;
+            const skillCounts = {};
+
+            if (resumeList.length > 0) {
+                // Fetch matches for the most recent resume to show on dashboard
+                try {
+                    const matchRes = await matchApi.listByResume(resumeList[0].id);
+                    const matches = matchRes.data.matches;
+                    totalMatches = matches.length;
+
+                    if (totalMatches > 0) {
+                        totalScore = matches.reduce((acc, m) => acc + m.overall_score, 0);
+                        maxScore = Math.max(...matches.map(m => m.overall_score));
+                    }
+                } catch (e) {
+                    console.error('Failed to fetch matches:', e);
+                }
+
+                // Aggregate skills across all resumes
+                resumeList.forEach(r => {
+                    const skills = r.skills || [];
+                    skills.forEach(s => {
+                        skillCounts[s] = (skillCounts[s] || 0) + 1;
+                    });
+                });
+            }
+
+            // Convert skill counts to chart data
+            const formattedSkills = Object.entries(skillCounts)
+                .map(([name, count]) => ({ name, value: count * 20 })) // Scale for visualization
+                .sort((a, b) => b.value - a.value)
+                .slice(0, 5);
+
+            setSkillData(formattedSkills.length > 0 ? formattedSkills : [
+                { name: 'Python', value: 0 },
+                { name: 'React', value: 0 },
+                { name: 'ML', value: 0 },
+                { name: 'SQL', value: 0 },
+                { name: 'AWS', value: 0 },
+            ]);
+
+            setStats({
+                resumes: resumeList.length,
+                matches: totalMatches,
+                avgScore: totalMatches > 0 ? Math.round(totalScore / totalMatches) : 0,
+                topMatch: Math.round(maxScore)
+            });
         } catch (error) {
             console.error('Failed to fetch data:', error);
         } finally {
             setLoading(false);
         }
     };
-
-    const skillData = [
-        { name: 'Python', value: 85 },
-        { name: 'React', value: 78 },
-        { name: 'ML', value: 72 },
-        { name: 'AWS', value: 65 },
-        { name: 'SQL', value: 60 },
-    ];
 
     const COLORS = ['#6366f1', '#8b5cf6', '#a855f7', '#c084fc', '#d8b4fe'];
 
@@ -47,7 +90,7 @@ function Dashboard() {
                     { icon: FileText, label: 'Resumes', value: stats.resumes, color: 'from-blue-500 to-cyan-500' },
                     { icon: Target, label: 'Matches', value: stats.matches, color: 'from-purple-500 to-pink-500' },
                     { icon: TrendingUp, label: 'Avg Score', value: `${stats.avgScore}%`, color: 'from-accent-500 to-emerald-500' },
-                    { icon: Award, label: 'Top Match', value: '92%', color: 'from-amber-500 to-orange-500' },
+                    { icon: Award, label: 'Top Match', value: `${stats.topMatch}%`, color: 'from-amber-500 to-orange-500' },
                 ].map((stat, i) => (
                     <div key={i} className="card">
                         <div className="flex items-center gap-4">

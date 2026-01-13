@@ -19,12 +19,14 @@ function Layout() {
     }
 
     return (
-        <div className="min-h-screen bg-dark-900">
+        <div className="h-screen flex overflow-hidden bg-dark-900">
             <Sidebar />
-            <div className="lg:ml-64">
+            <div className="flex-1 flex flex-col min-w-0 overflow-hidden lg:ml-64">
                 <Header />
-                <main className="p-6 pt-20 lg:pt-6">
-                    <Outlet />
+                <main className="flex-1 relative overflow-y-auto focus:outline-none p-6 pt-24">
+                    <div className="max-w-7xl mx-auto">
+                        <Outlet />
+                    </div>
                 </main>
             </div>
         </div>
