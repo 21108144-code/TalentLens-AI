@@ -29,6 +29,7 @@ class JobCreate(JobBase):
     salary_min: Optional[float] = None
     salary_max: Optional[float] = None
     salary_currency: str = "USD"
+    apply_url: Optional[str] = None
 
 
 class JobUpdate(BaseModel):
@@ -41,6 +42,7 @@ class JobUpdate(BaseModel):
     location: Optional[str] = None
     salary_min: Optional[float] = None
     salary_max: Optional[float] = None
+    apply_url: Optional[str] = None
     is_active: Optional[int] = None
 
 
@@ -57,6 +59,7 @@ class JobResponse(JobBase):
     salary_min: Optional[float] = None
     salary_max: Optional[float] = None
     salary_currency: str = "USD"
+    apply_url: Optional[str] = None
     is_active: int
     created_at: datetime
     

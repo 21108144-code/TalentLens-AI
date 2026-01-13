@@ -37,7 +37,8 @@ async def seed_jobs():
     engine = create_async_engine(f"sqlite+aiosqlite:///{db_path}")
     
     async with engine.begin() as conn:
-        # Create jobs table if not exists
+        # Drop and recreate jobs table to ensure clean schema
+        await conn.execute(text("DROP TABLE IF EXISTS jobs"))
         await conn.execute(text("""
             CREATE TABLE IF NOT EXISTS jobs (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -53,6 +54,7 @@ async def seed_jobs():
                 education_required VARCHAR(100),
                 salary_min INTEGER,
                 salary_max INTEGER,
+                apply_url VARCHAR(500),
                 is_active BOOLEAN DEFAULT 1,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -66,11 +68,11 @@ async def seed_jobs():
                 INSERT OR REPLACE INTO jobs 
                 (id, title, company, location, job_type, remote_option, 
                  description, requirements, skills_required, experience_required,
-                 education_required, salary_min, salary_max, is_active)
+                 education_required, salary_min, salary_max, apply_url, is_active, created_at)
                 VALUES 
                 (:id, :title, :company, :location, :job_type, :remote_option,
                  :description, :requirements, :skills, :experience,
-                 :education, :salary_min, :salary_max, 1)
+                 :education, :salary_min, :salary_max, :apply_url, 1, :created_at)
             """), {
                 "id": job["id"],
                 "title": job["title"],
@@ -84,7 +86,9 @@ async def seed_jobs():
                 "experience": job.get("experience_required"),
                 "education": job.get("education_required"),
                 "salary_min": job.get("salary_min"),
-                "salary_max": job.get("salary_max")
+                "salary_max": job.get("salary_max"),
+                "apply_url": job.get("apply_url"),
+                "created_at": job.get("created_at") or "2026-01-13 15:00:00"
             })
         
         print(f"Inserted {len(jobs)} jobs into database")

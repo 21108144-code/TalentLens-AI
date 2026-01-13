@@ -66,6 +66,7 @@ class Job(Base):
     # Metadata
     source = Column(String(100), nullable=True)  # Where the job was sourced from
     external_id = Column(String(100), nullable=True)  # ID from source
+    apply_url = Column(String(500), nullable=True)  # Direct link to apply
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     

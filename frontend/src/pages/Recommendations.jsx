@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Lightbulb, Star, MapPin, DollarSign, CheckCircle, AlertTriangle } from 'lucide-react';
+import { Lightbulb, Star, MapPin, DollarSign, CheckCircle, AlertTriangle, ExternalLink } from 'lucide-react';
 import { recommendationApi, resumeApi } from '../services/api';
 
 function Recommendations() {
@@ -123,6 +123,20 @@ function Recommendations() {
                                                     {skill}
                                                 </span>
                                             ))}
+                                        </div>
+                                    )}
+
+                                    {rec.apply_url && (
+                                        <div className="mt-4">
+                                            <a
+                                                href={rec.apply_url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="btn-primary py-2 px-4 text-sm inline-flex items-center gap-2"
+                                            >
+                                                Apply Now
+                                                <ExternalLink className="w-4 h-4" />
+                                            </a>
                                         </div>
                                     )}
                                 </div>

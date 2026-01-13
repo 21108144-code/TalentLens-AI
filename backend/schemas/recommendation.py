@@ -23,6 +23,7 @@ class RecommendedJob(BaseModel):
     skill_overlap: List[str]
     skill_gaps: List[str]
     match_highlights: List[str]
+    apply_url: Optional[str] = None
 
 
 class RecommendationRequest(BaseModel):
