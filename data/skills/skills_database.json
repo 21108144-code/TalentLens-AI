@@ -1,0 +1,104 @@
+{
+    "technical_skills": [
+        "python",
+        "javascript",
+        "java",
+        "c++",
+        "go",
+        "rust",
+        "typescript",
+        "react",
+        "vue",
+        "angular",
+        "node.js",
+        "django",
+        "flask",
+        "fastapi",
+        "sql",
+        "postgresql",
+        "mongodb",
+        "redis",
+        "elasticsearch",
+        "aws",
+        "azure",
+        "gcp",
+        "docker",
+        "kubernetes",
+        "terraform",
+        "machine learning",
+        "deep learning",
+        "tensorflow",
+        "pytorch",
+        "scikit-learn",
+        "pandas",
+        "numpy",
+        "data analysis",
+        "nlp",
+        "computer vision",
+        "git",
+        "ci/cd",
+        "linux",
+        "agile",
+        "scrum"
+    ],
+    "soft_skills": [
+        "leadership",
+        "communication",
+        "teamwork",
+        "problem solving",
+        "critical thinking",
+        "time management",
+        "project management",
+        "analytical",
+        "creative",
+        "adaptability",
+        "collaboration"
+    ],
+    "categories": {
+        "programming": [
+            "python",
+            "javascript",
+            "java",
+            "c++",
+            "go",
+            "rust",
+            "typescript"
+        ],
+        "frontend": [
+            "react",
+            "vue",
+            "angular",
+            "html",
+            "css",
+            "tailwindcss"
+        ],
+        "backend": [
+            "node.js",
+            "django",
+            "flask",
+            "fastapi",
+            "spring"
+        ],
+        "database": [
+            "sql",
+            "postgresql",
+            "mongodb",
+            "redis",
+            "mysql"
+        ],
+        "cloud": [
+            "aws",
+            "azure",
+            "gcp",
+            "docker",
+            "kubernetes"
+        ],
+        "ml": [
+            "machine learning",
+            "deep learning",
+            "tensorflow",
+            "pytorch",
+            "nlp"
+        ]
+    }
+}
