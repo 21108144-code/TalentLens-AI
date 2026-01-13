@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Search, MapPin, Briefcase, DollarSign, Filter, Building } from 'lucide-react';
+import { Search, MapPin, Briefcase, DollarSign, Filter, Building, ExternalLink } from 'lucide-react';
 import { jobApi } from '../services/api';
 
 function JobSearch() {
@@ -186,6 +186,21 @@ function JobSearch() {
                                                     +{job.skills_required.length - 5} more
                                                 </span>
                                             )}
+                                        </div>
+                                    )}
+
+                                    {job.apply_url && (
+                                        <div className="mt-4">
+                                            <a
+                                                href={job.apply_url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="btn-primary py-1.5 px-4 text-xs inline-flex items-center gap-2"
+                                                onClick={(e) => e.stopPropagation()}
+                                            >
+                                                Apply Now
+                                                <ExternalLink className="w-3.5 h-3.5" />
+                                            </a>
                                         </div>
                                     )}
                                 </div>
