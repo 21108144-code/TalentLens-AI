@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Sparkles, Mail, Lock, AlertCircle } from 'lucide-react';
+import { Sparkles, AlertCircle } from 'lucide-react';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -63,32 +63,26 @@ function Login() {
                     <form onSubmit={handleSubmit} className="space-y-5">
                         <div>
                             <label className="label">Email Address</label>
-                            <div className="relative">
-                                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-dark-400 z-10 pointer-events-none" />
-                                <input
-                                    type="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    className="input pl-12"
-                                    placeholder="you@example.com"
-                                    required
-                                />
-                            </div>
+                            <input
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                className="input"
+                                placeholder="you@example.com"
+                                required
+                            />
                         </div>
 
                         <div>
                             <label className="label">Password</label>
-                            <div className="relative">
-                                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-dark-400 z-10 pointer-events-none" />
-                                <input
-                                    type="password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    className="input pl-12"
-                                    placeholder="••••••••"
-                                    required
-                                />
-                            </div>
+                            <input
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                className="input"
+                                placeholder="••••••••"
+                                required
+                            />
                         </div>
 
                         <button

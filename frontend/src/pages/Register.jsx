@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Sparkles, Mail, Lock, User, AlertCircle, CheckCircle } from 'lucide-react';
+import { Sparkles, AlertCircle, CheckCircle } from 'lucide-react';
 
 function Register() {
     const [fullName, setFullName] = useState('');
@@ -86,62 +86,50 @@ function Register() {
                     <form onSubmit={handleSubmit} className="space-y-5">
                         <div>
                             <label className="label">Full Name</label>
-                            <div className="relative">
-                                <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-dark-400 z-10 pointer-events-none" />
-                                <input
-                                    type="text"
-                                    value={fullName}
-                                    onChange={(e) => setFullName(e.target.value)}
-                                    className="input pl-12"
-                                    placeholder="John Doe"
-                                    required
-                                />
-                            </div>
+                            <input
+                                type="text"
+                                value={fullName}
+                                onChange={(e) => setFullName(e.target.value)}
+                                className="input"
+                                placeholder="John Doe"
+                                required
+                            />
                         </div>
 
                         <div>
                             <label className="label">Email Address</label>
-                            <div className="relative">
-                                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-dark-400 z-10 pointer-events-none" />
-                                <input
-                                    type="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    className="input pl-12"
-                                    placeholder="you@example.com"
-                                    required
-                                />
-                            </div>
+                            <input
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                className="input"
+                                placeholder="you@example.com"
+                                required
+                            />
                         </div>
 
                         <div>
                             <label className="label">Password</label>
-                            <div className="relative">
-                                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-dark-400 z-10 pointer-events-none" />
-                                <input
-                                    type="password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    className="input pl-12"
-                                    placeholder="Min. 8 characters"
-                                    required
-                                />
-                            </div>
+                            <input
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                className="input"
+                                placeholder="Min. 8 characters"
+                                required
+                            />
                         </div>
 
                         <div>
                             <label className="label">Confirm Password</label>
-                            <div className="relative">
-                                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-dark-400 z-10 pointer-events-none" />
-                                <input
-                                    type="password"
-                                    value={confirmPassword}
-                                    onChange={(e) => setConfirmPassword(e.target.value)}
-                                    className="input pl-12"
-                                    placeholder="••••••••"
-                                    required
-                                />
-                            </div>
+                            <input
+                                type="password"
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                className="input"
+                                placeholder="••••••••"
+                                required
+                            />
                         </div>
 
                         <button
