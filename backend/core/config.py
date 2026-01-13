@@ -64,8 +64,20 @@ def get_settings() -> Settings:
     Get cached settings instance.
     Using lru_cache ensures settings are only loaded once.
     """
-    return Settings()
+    _settings = Settings()
+    
+    # Security check: Warn if using default secret key
+    if not _settings.DEBUG and _settings.SECRET_KEY == "your-super-secret-key-change-in-production":
+        import warnings
+        warnings.warn(
+            "⚠️ SECURITY WARNING: Using default SECRET_KEY! "
+            "Set a secure SECRET_KEY in your .env file for production.",
+            UserWarning
+        )
+    
+    return _settings
 
 
 # Global settings instance
 settings = get_settings()
+
