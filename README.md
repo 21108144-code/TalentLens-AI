@@ -233,19 +233,17 @@ Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTIN
 4. Push to branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
----
 
-## 📄 License
+
+ 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file.
 
----
 
-## 👤 Author
 
-**Abdul Mueed Kakar**
-- Portfolio: [Your Portfolio URL]
-- LinkedIn: [Your LinkedIn]
+ 👤 Author
+
+Abdul Mueed Kakar
 - GitHub: [@21108144-code](https://github.com/21108144-code)
 
 ---
