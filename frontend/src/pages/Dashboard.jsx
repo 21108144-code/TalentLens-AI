@@ -27,8 +27,8 @@ function Dashboard() {
             if (resumeList.length > 0) {
                 // Fetch matches for the most recent resume to show on dashboard
                 try {
-                    const matchRes = await matchApi.listByResume(resumeList[0].id);
-                    const matches = matchRes.data.matches;
+                    const matchRes = await matchApi.getForResume(resumeList[0].id);
+                    const matches = matchRes.data.matches || [];
                     totalMatches = matches.length;
 
                     if (totalMatches > 0) {

@@ -67,13 +67,24 @@ async def generate_recommendations(
         )
     
     # Generate recommendations
-    recommendation_service = RecommendationService()
-    recommendations = await recommendation_service.generate(
-        resume=resume,
-        jobs=jobs,
-        filters=request.filters,
-        limit=request.limit
-    )
+    try:
+        recommendation_service = RecommendationService()
+        logger.info(f"Generating recommendations for resume {resume.id} with {len(jobs)} jobs")
+        recommendations = await recommendation_service.generate(
+            resume=resume,
+            jobs=jobs,
+            filters=request.filters,
+            limit=request.limit
+        )
+        logger.info(f"Generated {len(recommendations)} recommendations")
+    except Exception as e:
+        import traceback
+        logger.error(f"Recommendation generation failed: {str(e)}")
+        logger.error(traceback.format_exc())
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Recommendation generation failed: {str(e)}"
+        )
     
     # Store recommendations
     rec = Recommendation(
@@ -153,11 +164,12 @@ async def get_recommendations(
                 title=job.title,
                 company=job.company,
                 location=job.location,
-                salary_range=f"${job.salary_min:,.0f} - ${job.salary_max:,.0f}" if job.salary_min else None,
+                salary_range=f"${job.salary_min:,.0f} - ${job.salary_max:,.0f}" if job.salary_min and job.salary_max else (f"${job.salary_min:,.0f}" if job.salary_min else None),
                 explanation=rec.explanations.get(str(job.id), ""),
                 skill_overlap=[],
                 skill_gaps=[],
-                match_highlights=[]
+                match_highlights=[],
+                apply_url=job.apply_url
             ))
     
     return RecommendationResponse(

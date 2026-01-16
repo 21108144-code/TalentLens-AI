@@ -26,13 +26,22 @@ function Recommendations() {
     };
 
     const generateRecommendations = async () => {
-        if (!selectedResume) return;
+        console.log('Generate button clicked, selectedResume:', selectedResume);
+        if (!selectedResume) {
+            console.error('No resume selected!');
+            return;
+        }
         setGenerating(true);
         try {
-            const response = await recommendationApi.generate(selectedResume, {}, 5);
+            console.log('Calling API with resume ID:', selectedResume);
+            const response = await recommendationApi.generate(selectedResume, {}, 20);
+            console.log('API Response:', response);
+            console.log('Recommendations received:', response.data.recommendations);
             setRecommendations(response.data.recommendations);
         } catch (error) {
             console.error('Failed to generate recommendations:', error);
+            console.error('Error details:', error.response?.data || error.message);
+            alert('Failed to generate recommendations: ' + (error.response?.data?.detail || error.message));
         } finally {
             setGenerating(false);
         }

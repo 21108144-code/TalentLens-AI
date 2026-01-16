@@ -30,7 +30,7 @@ class RecommendationRequest(BaseModel):
     """Schema for recommendation request."""
     resume_id: int
     filters: Optional[Dict] = None
-    limit: int = 5
+    limit: int = 20
 
 
 class RecommendationResponse(BaseModel):

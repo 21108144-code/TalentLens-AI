@@ -102,6 +102,17 @@ app.include_router(matches.router, prefix="/api/matches", tags=["Matches"])
 app.include_router(recommendations.router, prefix="/api/recommendations", tags=["Recommendations"])
 
 
+@app.exception_handler(Exception)
+async def global_exception_handler(request, exc):
+    import traceback
+    logger.error(f"Global exception: {str(exc)}")
+    logger.error(traceback.format_exc())
+    return {
+        "detail": str(exc),
+        "traceback": traceback.format_exc() if settings.DEBUG else None
+    }
+
+
 @app.get("/", tags=["Root"])
 async def root():
     """

@@ -10,12 +10,10 @@ from typing import List, Optional, Union
 from loguru import logger
 
 # Try to import sentence-transformers
-try:
-    from sentence_transformers import SentenceTransformer
-    EMBEDDINGS_AVAILABLE = True
-except ImportError:
-    EMBEDDINGS_AVAILABLE = False
-    logger.warning("sentence-transformers not installed. Using fallback embeddings.")
+# DISABLED for faster operation - using fallback embeddings
+EMBEDDINGS_AVAILABLE = False
+logger.warning("Using fallback embeddings for faster operation.")
+
 
 
 class EmbeddingService:

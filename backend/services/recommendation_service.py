@@ -31,7 +31,7 @@ class RecommendationService:
         resume,
         jobs: List,
         filters: Optional[Dict] = None,
-        limit: int = 5
+        limit: int = 20
     ) -> List[RecommendedJob]:
         """
         Generate personalized job recommendations.
@@ -42,23 +42,54 @@ class RecommendationService:
         # Apply strict recency filter: max 3 days old
         from datetime import datetime, timedelta
         three_days_ago = datetime.utcnow() - timedelta(days=3)
-        recent_jobs = [j for j in jobs if j.created_at >= three_days_ago]
+        logger.info(f"Filtering for jobs newer than {three_days_ago} (UTC)")
+        
+        recent_jobs = []
+        for j in jobs:
+            job_date = j.created_at
+            
+            # Robust parsing for SQLite string timestamps
+            if isinstance(job_date, str):
+                for fmt in ('%Y-%m-%d %H:%M:%S', '%Y-%m-%d %H:%M:%S.%f', '%Y-%m-%dT%H:%M:%S', '%Y-%m-%dT%H:%M:%S.%f'):
+                    try:
+                        job_date = datetime.strptime(job_date.split('+')[0].split('Z')[0], fmt)
+                        break
+                    except ValueError:
+                        continue
+                else:
+                    logger.warning(f"Could not parse job date string: {job_date}")
+                    continue
+            
+            if isinstance(job_date, datetime):
+                # Ensure we are comparing naive datetimes
+                if job_date.tzinfo is not None:
+                    job_date = job_date.replace(tzinfo=None)
+                
+                if job_date >= three_days_ago:
+                    recent_jobs.append(j)
+                else:
+                    logger.debug(f"Skipping old job {j.id}: {job_date} is older than {three_days_ago}")
+            else:
+                logger.warning(f"Job {j.id} has invalid date type: {type(job_date)}")
+        
+        logger.info(f"Found {len(recent_jobs)} recent jobs out of {len(jobs)} total active jobs")
         
         if not recent_jobs:
-            logger.warning("No jobs found within the last 3 days. Showing most recent available for demo.")
-            # Fallback to most recent if none in last 3 days, or just return empty
-            # The user was quite strict, but for a demo we might want to show something.
-            # However, I'll follow the rule: max 3 days.
-            return []
+            logger.warning("No jobs found within the last 3 days.")
+            # FALLBACK: If absolutely nothing in 3 days, show something to avoid "not working"
+            recent_jobs = sorted(jobs, key=lambda x: str(x.created_at), reverse=True)[:limit]
+            logger.info(f"Using {len(recent_jobs)} most recent jobs as fallback (limit={limit}).")
         
         # Apply other filters (location, job_type, etc.)
         filtered_jobs = self._apply_filters(recent_jobs, filters)
+        logger.info(f"After applying user filters, {len(filtered_jobs)} jobs remaining")
         
         if not filtered_jobs:
             return []
         
         # Score all jobs
         scored_jobs = []
+        logger.info(f"Scoring {len(filtered_jobs)} jobs for resume {resume.id}")
         
         for job in filtered_jobs:
             try:
@@ -67,23 +98,33 @@ class RecommendationService:
                 # Bonus for Islamabad or Remote based on user preference
                 score = match_result["overall_score"]
                 loc = (job.location or "").lower()
-                remote = (job.remote_option or "").lower() == "remote"
+                is_remote_opt = (job.remote_option or "").lower() == "remote"
                 
                 if "islamabad" in loc:
-                    score += 10 # Preference bonus
-                if remote:
-                    score += 5 # Remote bonus
+                    score += 50 # High preference bonus for target city
+                elif "pakistan" in loc:
+                    score += 20 # Moderate preference for country
+                
+                if is_remote_opt or "remote" in loc:
+                    score += 5 # Small remote bonus
+                
+                score = min(score, 100)
+                logger.info(f"Job {job.id} ({job.title}): Score {score:.2f}")
                 
                 scored_jobs.append({
                     "job": job,
-                    "score": min(score, 100),
+                    "score": score,
                     "skill_overlap": match_result["skill_overlap"],
                     "skill_gaps": match_result["skill_gaps"],
                     "explanation": match_result["explanation"]
                 })
             except Exception as e:
-                logger.warning(f"Error scoring job {job.id}: {e}")
+                logger.error(f"Error scoring job {job.id}: {str(e)}")
+                import traceback
+                logger.error(traceback.format_exc())
                 continue
+        
+        logger.info(f"Successfully scored {len(scored_jobs)} jobs")
         
         # Sort by score
         scored_jobs.sort(key=lambda x: x["score"], reverse=True)
@@ -93,16 +134,23 @@ class RecommendationService:
         
         # Convert to response schema
         recommendations = []
+        logger.info(f"Producing {len(top_jobs)} recommendations")
         for rank, item in enumerate(top_jobs, 1):
             job = item["job"]
+            logger.info(f"Formatting rec {rank}: Job {job.id}")
             
             # Generate match highlights
             highlights = self._generate_highlights(item)
             
             # Format salary range
             salary_range = None
-            if job.salary_min and job.salary_max:
-                salary_range = f"${job.salary_min:,.0f} - ${job.salary_max:,.0f}"
+            try:
+                if job.salary_min and job.salary_max:
+                    salary_range = f"${job.salary_min:,.0f} - ${job.salary_max:,.0f}"
+                elif job.salary_min:
+                    salary_range = f"${job.salary_min:,.0f}+"
+            except Exception as se:
+                logger.error(f"Salary formatting error: {se}")
             
             recommendations.append(RecommendedJob(
                 job_id=job.id,

@@ -68,7 +68,7 @@ export const matchApi = {
 
 // Recommendation endpoints
 export const recommendationApi = {
-    generate: (resumeId, filters = {}, limit = 5) =>
+    generate: (resumeId, filters = {}, limit = 20) =>
         api.post('/recommendations/generate', { resume_id: resumeId, filters, limit }),
     getForResume: (resumeId) => api.get(`/recommendations/resume/${resumeId}`),
     getHistory: (limit = 10) => api.get('/recommendations/history', { params: { limit } }),

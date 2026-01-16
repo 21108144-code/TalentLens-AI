@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     
     # Application
     APP_NAME: str = "TalentLens AI"
-    DEBUG: bool = False
+    DEBUG: bool = True
     
     # Backend Server
     BACKEND_HOST: str = "localhost"

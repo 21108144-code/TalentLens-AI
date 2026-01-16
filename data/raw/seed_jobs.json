@@ -1,13 +1,12 @@
 [
     {
-        "id": 1,
         "title": "Senior AI Engineer",
         "company": "Systems Limited",
         "location": "Islamabad, Pakistan",
         "job_type": "Full-time",
         "remote_option": "Hybrid",
-        "description": "We are seeking a Senior AI Engineer to join our team in Islamabad. You will work on Large Language Models, Generative AI, and computer vision projects for global clients. Tech stack includes Python, PyTorch, and Azure AI.",
-        "requirements": "3+ years of experience in AI/ML. Proficiency in Python and Deep Learning frameworks. Experience with Azure or AWS. Strong problem-solving skills.",
+        "description": "We are seeking a Senior AI Engineer to join our team in Islamabad. You will work on Large Language Models, Generative AI, and computer vision projects for global clients.",
+        "requirements": "3+ years of experience in AI/ML. Proficiency in Python and Deep Learning frameworks.",
         "skills_required": [
             "python",
             "pytorch",
@@ -21,18 +20,16 @@
         "education_required": "Bachelor's degree",
         "salary_min": 250000,
         "salary_max": 450000,
-        "apply_url": "https://www.linkedin.com/jobs/view/senior-ai-engineer-systems-ltd-islamabad",
-        "created_at": "2026-01-12 10:00:00"
+        "apply_url": "https://www.systemsltd.com/careers/senior-ai-engineer-islamabad"
     },
     {
-        "id": 2,
         "title": "Full Stack Developer",
         "company": "Afiniti",
         "location": "Islamabad, Pakistan",
         "job_type": "Full-time",
         "remote_option": "On-site",
-        "description": "Afiniti is looking for a Full Stack Developer in Islamabad. You will build and maintain high-performance web applications using React and Node.js.",
-        "requirements": "2+ years of experience in React and Node. Mentor junior developers. Strong understanding of microservices.",
+        "description": "Afiniti is looking for a Full Stack Developer in Islamabad to build high-performance web applications using React and Node.js.",
+        "requirements": "2+ years of experience in React and Node. Strong understanding of microservices.",
         "skills_required": [
             "javascript",
             "react",
@@ -45,18 +42,16 @@
         "education_required": "Bachelor's degree",
         "salary_min": 150000,
         "salary_max": 300000,
-        "apply_url": "https://www.afiniti.com/careers/jobs/full-stack-developer-islamabad",
-        "created_at": "2026-01-13 09:30:00"
+        "apply_url": "https://afiniti.com/jobs/full-stack-developer-islamabad"
     },
     {
-        "id": 3,
         "title": "Remote Python Backend Engineer",
         "company": "GitLab",
-        "location": "Global",
+        "location": "Remote - Global",
         "job_type": "Full-time",
         "remote_option": "Remote",
-        "description": "Join GitLab's fully remote team to work on the world's leading DevSecOps platform. You will be responsible for scaling backend services using Python and Go.",
-        "requirements": "4+ years of backend development. Experience with high-traffic systems. Passion for open source and remote work.",
+        "description": "Join GitLab's fully remote team to work on the world's leading DevSecOps platform.",
+        "requirements": "4+ years of backend development. Experience with high-traffic systems.",
         "skills_required": [
             "python",
             "go",
@@ -69,18 +64,16 @@
         "education_required": "Bachelor's degree",
         "salary_min": 5000,
         "salary_max": 12000,
-        "apply_url": "https://about.gitlab.com/jobs/all-jobs/backend-engineer-remote",
-        "created_at": "2026-01-12 14:20:00"
+        "apply_url": "https://about.gitlab.com/jobs/apply/python-backend-engineer"
     },
     {
-        "id": 4,
-        "title": "Machine Learning Engineer (Remote)",
+        "title": "Machine Learning Engineer",
         "company": "Zapier",
-        "location": "Global",
+        "location": "Remote - Global",
         "job_type": "Full-time",
         "remote_option": "Remote",
-        "description": "Zapier is hiring ML engineers to build intelligent automation features. Work from anywhere in the world and help us shape the future of automation.",
-        "requirements": "Strong background in ML and software engineering. Experience with Python, Scikit-learn, and cloud environments.",
+        "description": "Zapier is hiring ML engineers to build intelligent automation features. Work from anywhere!",
+        "requirements": "Strong background in ML and software engineering.",
         "skills_required": [
             "python",
             "machine learning",
@@ -93,18 +86,16 @@
         "education_required": "Master's degree",
         "salary_min": 6000,
         "salary_max": 10000,
-        "apply_url": "https://zapier.com/jobs/ml-engineer-remote",
-        "created_at": "2026-01-11 11:45:00"
+        "apply_url": "https://zapier.com/jobs/machine-learning-engineer-remote"
     },
     {
-        "id": 5,
         "title": "Data Scientist",
         "company": "Teradata",
         "location": "Islamabad, Pakistan",
         "job_type": "Full-time",
         "remote_option": "Hybrid",
-        "description": "Teradata Islamabad is looking for a Data Scientist to help customers derive value from their data. You will build predictive models and perform advanced analytics.",
-        "requirements": "MS in Data Science or related field. 2+ years of experience. Proficiency in SQL and Python.",
+        "description": "Teradata Islamabad is looking for a Data Scientist to build predictive models and analytics.",
+        "requirements": "MS in Data Science or related field. 2+ years of experience.",
         "skills_required": [
             "sql",
             "python",
@@ -116,18 +107,16 @@
         "education_required": "Master's degree",
         "salary_min": 200000,
         "salary_max": 400000,
-        "apply_url": "https://careers.teradata.com/jobs/data-scientist-islamabad",
-        "created_at": "2026-01-12 16:00:00"
+        "apply_url": "https://careers.teradata.com/jobs/data-scientist-islamabad"
     },
     {
-        "id": 6,
         "title": "Software Engineer (Remote)",
         "company": "Automattic",
-        "location": "Global",
+        "location": "Remote - Global",
         "job_type": "Full-time",
         "remote_option": "Remote",
-        "description": "Automattic is the company behind WordPress.com. We are looking for engineers who want to make the web a better place. Work from anywhere!",
-        "requirements": "Experience with PHP, JavaScript, and React. Strong focus on user experience and scale.",
+        "description": "Automattic is the company behind WordPress.com. Work from anywhere!",
+        "requirements": "Experience with PHP, JavaScript, and React.",
         "skills_required": [
             "php",
             "javascript",
@@ -139,7 +128,393 @@
         "education_required": "Bachelor's degree",
         "salary_min": 4000,
         "salary_max": 9000,
-        "apply_url": "https://automattic.com/work-with-us/software-engineer",
-        "created_at": "2026-01-13 11:15:00"
+        "apply_url": "https://automattic.com/work-with-us/software-engineer-remote"
+    },
+    {
+        "title": "DevOps Engineer",
+        "company": "i2c Inc",
+        "location": "Islamabad, Pakistan",
+        "job_type": "Full-time",
+        "remote_option": "On-site",
+        "description": "i2c is looking for DevOps engineers to manage cloud infrastructure and CI/CD pipelines.",
+        "requirements": "3+ years of DevOps experience. AWS or Azure certification preferred.",
+        "skills_required": [
+            "aws",
+            "docker",
+            "kubernetes",
+            "jenkins",
+            "terraform",
+            "linux"
+        ],
+        "experience_required": 3,
+        "education_required": "Bachelor's degree",
+        "salary_min": 180000,
+        "salary_max": 350000,
+        "apply_url": "https://www.i2cinc.com/careers/devops-engineer"
+    },
+    {
+        "title": "React Native Developer",
+        "company": "Contour Software",
+        "location": "Islamabad, Pakistan",
+        "job_type": "Full-time",
+        "remote_option": "Hybrid",
+        "description": "Build cross-platform mobile applications using React Native for global clients.",
+        "requirements": "2+ years of React Native development.",
+        "skills_required": [
+            "react native",
+            "javascript",
+            "typescript",
+            "redux",
+            "git"
+        ],
+        "experience_required": 2,
+        "education_required": "Bachelor's degree",
+        "salary_min": 120000,
+        "salary_max": 250000,
+        "apply_url": "https://www.contour-software.com/careers/react-native-developer"
+    },
+    {
+        "title": "Cloud Solutions Architect",
+        "company": "Microsoft",
+        "location": "Islamabad, Pakistan",
+        "job_type": "Full-time",
+        "remote_option": "Hybrid",
+        "description": "Microsoft Islamabad is hiring Cloud Solutions Architects to help enterprise customers adopt Azure.",
+        "requirements": "5+ years of cloud architecture experience. Azure certifications required.",
+        "skills_required": [
+            "azure",
+            "cloud architecture",
+            "kubernetes",
+            "python",
+            "networking"
+        ],
+        "experience_required": 5,
+        "education_required": "Bachelor's degree",
+        "salary_min": 400000,
+        "salary_max": 700000,
+        "apply_url": "https://careers.microsoft.com/us/en/job/17894/Cloud-Solutions-Architect"
+    },
+    {
+        "title": "Frontend Developer (Remote)",
+        "company": "Toptal",
+        "location": "Remote - Global",
+        "job_type": "Contract",
+        "remote_option": "Remote",
+        "description": "Join Toptal's network of elite freelancers. Work with top startups worldwide.",
+        "requirements": "Expert-level React skills. Strong portfolio required.",
+        "skills_required": [
+            "react",
+            "typescript",
+            "css",
+            "javascript",
+            "git",
+            "nextjs"
+        ],
+        "experience_required": 4,
+        "education_required": "Bachelor's degree",
+        "salary_min": 5000,
+        "salary_max": 15000,
+        "apply_url": "https://www.toptal.com/talent/apply"
+    },
+    {
+        "title": "Backend Engineer (Node.js)",
+        "company": "Netsol Technologies",
+        "location": "Islamabad, Pakistan",
+        "job_type": "Full-time",
+        "remote_option": "On-site",
+        "description": "Netsol is hiring Node.js developers for their fintech product team.",
+        "requirements": "3+ years of Node.js experience. Fintech experience is a plus.",
+        "skills_required": [
+            "node.js",
+            "javascript",
+            "mongodb",
+            "postgresql",
+            "docker",
+            "rest api"
+        ],
+        "experience_required": 3,
+        "education_required": "Bachelor's degree",
+        "salary_min": 160000,
+        "salary_max": 320000,
+        "apply_url": "https://netsoltech.com/career/backend-engineer-nodejs"
+    },
+    {
+        "title": "AI Research Scientist (Remote)",
+        "company": "OpenAI",
+        "location": "Remote - Global",
+        "job_type": "Full-time",
+        "remote_option": "Remote",
+        "description": "OpenAI is hiring research scientists to advance the field of artificial intelligence.",
+        "requirements": "PhD in AI/ML or equivalent experience. Published research.",
+        "skills_required": [
+            "python",
+            "deep learning",
+            "pytorch",
+            "research",
+            "nlp",
+            "transformers"
+        ],
+        "experience_required": 5,
+        "education_required": "PhD",
+        "salary_min": 15000,
+        "salary_max": 30000,
+        "apply_url": "https://openai.com/careers/"
+    },
+    {
+        "title": "QA Engineer",
+        "company": "VentureDive",
+        "location": "Islamabad, Pakistan",
+        "job_type": "Full-time",
+        "remote_option": "Hybrid",
+        "description": "VentureDive is looking for QA Engineers to ensure product quality.",
+        "requirements": "2+ years of QA experience. Automation testing skills required.",
+        "skills_required": [
+            "selenium",
+            "python",
+            "testing",
+            "automation",
+            "jira",
+            "agile"
+        ],
+        "experience_required": 2,
+        "education_required": "Bachelor's degree",
+        "salary_min": 100000,
+        "salary_max": 200000,
+        "apply_url": "https://www.venturedive.com/careers/qa-engineer"
+    },
+    {
+        "title": "Product Manager (Remote)",
+        "company": "Stripe",
+        "location": "Remote - Global",
+        "job_type": "Full-time",
+        "remote_option": "Remote",
+        "description": "Stripe is hiring Product Managers to shape the future of online payments.",
+        "requirements": "4+ years of product management experience. Technical background preferred.",
+        "skills_required": [
+            "product management",
+            "analytics",
+            "sql",
+            "agile",
+            "fintech"
+        ],
+        "experience_required": 4,
+        "education_required": "Bachelor's degree",
+        "salary_min": 8000,
+        "salary_max": 18000,
+        "apply_url": "https://stripe.com/jobs"
+    },
+    {
+        "title": "Blockchain Developer",
+        "company": "Jazz",
+        "location": "Islamabad, Pakistan",
+        "job_type": "Full-time",
+        "remote_option": "On-site",
+        "description": "Jazz is looking for Blockchain developers to build decentralized solutions.",
+        "requirements": "2+ years of blockchain development. Smart contract experience.",
+        "skills_required": [
+            "solidity",
+            "ethereum",
+            "web3",
+            "javascript",
+            "python"
+        ],
+        "experience_required": 2,
+        "education_required": "Bachelor's degree",
+        "salary_min": 200000,
+        "salary_max": 400000,
+        "apply_url": "https://www.jazz.com.pk/careers/"
+    },
+    {
+        "title": "Site Reliability Engineer (Remote)",
+        "company": "Cloudflare",
+        "location": "Remote - Global",
+        "job_type": "Full-time",
+        "remote_option": "Remote",
+        "description": "Cloudflare is hiring SREs to keep the internet fast and secure.",
+        "requirements": "4+ years of SRE/DevOps experience. Strong Linux skills.",
+        "skills_required": [
+            "linux",
+            "kubernetes",
+            "prometheus",
+            "python",
+            "go",
+            "networking"
+        ],
+        "experience_required": 4,
+        "education_required": "Bachelor's degree",
+        "salary_min": 7000,
+        "salary_max": 14000,
+        "apply_url": "https://www.cloudflare.com/careers/"
+    },
+    {
+        "title": "Mobile App Developer (iOS)",
+        "company": "Techlogix",
+        "location": "Islamabad, Pakistan",
+        "job_type": "Full-time",
+        "remote_option": "Hybrid",
+        "description": "Techlogix is looking for iOS developers to build native mobile applications.",
+        "requirements": "3+ years of iOS development. Swift experience required.",
+        "skills_required": [
+            "swift",
+            "ios",
+            "xcode",
+            "objective-c",
+            "git"
+        ],
+        "experience_required": 3,
+        "education_required": "Bachelor's degree",
+        "salary_min": 180000,
+        "salary_max": 350000,
+        "apply_url": "https://www.techlogix.com/careers/"
+    },
+    {
+        "title": "Data Engineer (Remote)",
+        "company": "Databricks",
+        "location": "Remote - Global",
+        "job_type": "Full-time",
+        "remote_option": "Remote",
+        "description": "Build data pipelines and analytics platforms with Databricks.",
+        "requirements": "3+ years of data engineering. Spark experience required.",
+        "skills_required": [
+            "python",
+            "spark",
+            "sql",
+            "databricks",
+            "aws",
+            "etl"
+        ],
+        "experience_required": 3,
+        "education_required": "Bachelor's degree",
+        "salary_min": 6000,
+        "salary_max": 12000,
+        "apply_url": "https://www.databricks.com/company/careers/"
+    },
+    {
+        "title": "Computer Vision Engineer",
+        "company": "10Pearls",
+        "location": "Islamabad, Pakistan",
+        "job_type": "Full-time",
+        "remote_option": "Hybrid",
+        "description": "10Pearls is hiring Computer Vision engineers for AI-powered solutions.",
+        "requirements": "2+ years of CV experience. OpenCV or TensorFlow experience.",
+        "skills_required": [
+            "python",
+            "opencv",
+            "tensorflow",
+            "deep learning",
+            "computer vision"
+        ],
+        "experience_required": 2,
+        "education_required": "Master's degree",
+        "salary_min": 200000,
+        "salary_max": 380000,
+        "apply_url": "https://10pearls.com/careers/"
+    },
+    {
+        "title": "Technical Lead (Remote)",
+        "company": "Shopify",
+        "location": "Remote - Global",
+        "job_type": "Full-time",
+        "remote_option": "Remote",
+        "description": "Lead a team of engineers at Shopify. Shape the future of commerce.",
+        "requirements": "6+ years of engineering experience. 2+ years of leadership.",
+        "skills_required": [
+            "ruby",
+            "rails",
+            "react",
+            "leadership",
+            "architecture",
+            "mentoring"
+        ],
+        "experience_required": 6,
+        "education_required": "Bachelor's degree",
+        "salary_min": 10000,
+        "salary_max": 20000,
+        "apply_url": "https://www.shopify.com/careers"
+    },
+    {
+        "title": "UI/UX Designer",
+        "company": "CureMD",
+        "location": "Islamabad, Pakistan",
+        "job_type": "Full-time",
+        "remote_option": "On-site",
+        "description": "CureMD is looking for UI/UX designers for healthcare software products.",
+        "requirements": "3+ years of UI/UX experience. Figma proficiency required.",
+        "skills_required": [
+            "figma",
+            "ui design",
+            "ux design",
+            "prototyping",
+            "user research"
+        ],
+        "experience_required": 3,
+        "education_required": "Bachelor's degree",
+        "salary_min": 150000,
+        "salary_max": 280000,
+        "apply_url": "https://www.curemd.com/careers/"
+    },
+    {
+        "title": "Security Engineer (Remote)",
+        "company": "Palo Alto Networks",
+        "location": "Remote - Global",
+        "job_type": "Full-time",
+        "remote_option": "Remote",
+        "description": "Protect the digital world with Palo Alto Networks' security team.",
+        "requirements": "4+ years of security experience. CISSP or similar certification.",
+        "skills_required": [
+            "cybersecurity",
+            "python",
+            "penetration testing",
+            "siem",
+            "networking"
+        ],
+        "experience_required": 4,
+        "education_required": "Bachelor's degree",
+        "salary_min": 8000,
+        "salary_max": 16000,
+        "apply_url": "https://www.paloaltonetworks.com/company/careers/"
+    },
+    {
+        "title": "NLP Engineer",
+        "company": "LMKR",
+        "location": "Islamabad, Pakistan",
+        "job_type": "Full-time",
+        "remote_option": "Hybrid",
+        "description": "LMKR is hiring NLP engineers for AI-powered oil and gas solutions.",
+        "requirements": "2+ years of NLP experience. Transformer models experience.",
+        "skills_required": [
+            "python",
+            "nlp",
+            "transformers",
+            "pytorch",
+            "huggingface",
+            "bert"
+        ],
+        "experience_required": 2,
+        "education_required": "Master's degree",
+        "salary_min": 220000,
+        "salary_max": 420000,
+        "apply_url": "https://www.lmkr.com/careers/"
+    },
+    {
+        "title": "Solutions Engineer (Remote)",
+        "company": "Twilio",
+        "location": "Remote - Global",
+        "job_type": "Full-time",
+        "remote_option": "Remote",
+        "description": "Help customers build amazing communication experiences with Twilio.",
+        "requirements": "3+ years of software development. Customer-facing experience.",
+        "skills_required": [
+            "python",
+            "javascript",
+            "api",
+            "communication",
+            "rest api"
+        ],
+        "experience_required": 3,
+        "education_required": "Bachelor's degree",
+        "salary_min": 6000,
+        "salary_max": 11000,
+        "apply_url": "https://www.twilio.com/company/jobs/"
     }
 ]

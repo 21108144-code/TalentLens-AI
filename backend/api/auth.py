@@ -123,24 +123,33 @@ async def get_current_user_info(
 ):
     """
     Get current authenticated user's information.
-    
-    Args:
-        current_user_id: User ID from JWT token
-        db: Database session
-        
-    Returns:
-        Current user object
     """
-    result = await db.execute(select(User).where(User.id == int(current_user_id)))
-    user = result.scalar_one_or_none()
-    
-    if not user:
+    try:
+        result = await db.execute(select(User).where(User.id == int(current_user_id)))
+        user = result.scalar_one_or_none()
+        
+        if not user:
+            logger.warning(f"User ID {current_user_id} from token not found in DB")
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="User not found"
+            )
+        
+        return user
+    except ValueError:
+        logger.error(f"Invalid user_id in token: {current_user_id}")
         raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="User not found"
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid authentication token"
         )
-    
-    return user
+    except Exception as e:
+        logger.error(f"Unexpected error in /me: {str(e)}")
+        import traceback
+        logger.error(traceback.format_exc())
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Internal server error: {str(e)}"
+        )
 
 
 @router.post("/logout")
